@@ -46,6 +46,8 @@ Get the list of customers:
 
 http://localhost:8080/customers
 
+Yay! We created and dockerized a Spring Boot application.
+
 
 
 
