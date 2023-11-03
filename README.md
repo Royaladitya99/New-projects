@@ -13,7 +13,7 @@ mvn clean install
 mvn spring::boot run
 ```
 
-## Dockerizing a Spring Boot Application
+## Dockerizing a Spring Boot Application: Build a Spring Boot Docker image
 Created a Dockerfile with the below contents:
 ```
 FROM openjdk:8-jdk-alpine
