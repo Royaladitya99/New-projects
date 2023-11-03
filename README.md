@@ -1,4 +1,4 @@
-# SpringBootH2Project
+# 🌻 SpringBoot and H2 database Project
 Spring Boot and H2 database demo project
 
 ## Create a Spring Boot application
@@ -40,13 +40,16 @@ docker run -p 8080:8080 myorg/myapp
 ![image](https://github.com/itsnehagarg/SpringBootH2Project/assets/20385826/3e2fd91e-6fa3-4243-9801-4f30083db180)
 
 #### Test the application using Postman:
+
+Add the customers by using below link: http://localhost:8080/newcustomer
+
 ![image](https://github.com/itsnehagarg/SpringBootH2Project/assets/20385826/a9a6007e-39de-4dbc-84ed-145e105c80ac)
 
 Get the list of customers:
 
 http://localhost:8080/customers
 
-Yay! We created and dockerized a Spring Boot application.
+🌻Yay! We created and dockerized a Spring Boot application.
 
 
 
