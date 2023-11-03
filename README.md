@@ -16,9 +16,9 @@ mvn spring::boot run
 ## Dockerizing a Spring Boot Application: Build a Spring Boot Docker image
 Created a Dockerfile with the below contents:
 ```
-FROM openjdk:8-jdk-alpine
-WORKDIR /opt/app
-COPY target/SpringBootH2Demo-0.0.1-SNAPSHOT.jar app.jar
+FROM eclipse-temurin:17-jdk-alpine
+VOLUME /tmp
+COPY target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 ```
 ### Check if the docker is installed
@@ -27,10 +27,17 @@ docker --version
 ```
 ### Check if the docker daemon is running
 
-### Run the below mentioned docker command to build the docker image created above.
+### Run the below mentioned docker command to build the docker file created above.
 ```
-docker build -t=app:latest .
+docker build -t myorg/myapp .
 ```
-![image](https://github.com/itsnehagarg/SpringBootH2Project/assets/20385826/b731ccd8-4d97-407a-95cc-9595b56106a0)
+
+### Let's run the docker image using the below command:
+```
+docker run -p 8080:8080 myorg/myapp
+```
+
+![image](https://github.com/itsnehagarg/SpringBootH2Project/assets/20385826/3e2fd91e-6fa3-4243-9801-4f30083db180)
+
 
 
