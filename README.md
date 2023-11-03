@@ -39,5 +39,13 @@ docker run -p 8080:8080 myorg/myapp
 
 ![image](https://github.com/itsnehagarg/SpringBootH2Project/assets/20385826/3e2fd91e-6fa3-4243-9801-4f30083db180)
 
+#### Test the application using Postman:
+![image](https://github.com/itsnehagarg/SpringBootH2Project/assets/20385826/a9a6007e-39de-4dbc-84ed-145e105c80ac)
+
+Get the list of customers:
+
+http://localhost:8080/customers
+
+
 
 
