@@ -3,6 +3,13 @@ Spring Boot and H2 database demo project
 
 ## Create a Spring Boot application
 
+### 🌼 Starting with Spring Initializr
+1. Navigate to https://start.spring.io.
+2. Choose either Gradle or Maven and the language you want to use. I have used Maven in this application.
+3. Click Dependencies and select Rest Repositories, Spring Data JPA, and H2 Database.
+4. Click Generate.
+5. Add the relevant classes such as Controller, Repository & Entity class.
+
 ## Run Maven command to build the application
 ```
 mvn clean install
@@ -51,6 +58,10 @@ http://localhost:8080/customers
 
 🌻Yay! We created and dockerized a Spring Boot application.
 
+#### References:
 
+https://spring.io/guides/gs/accessing-data-rest/
+
+https://spring.io/guides/topicals/spring-boot-docker/
 
 
