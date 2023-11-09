@@ -58,6 +58,8 @@ http://localhost:8080/customers
 
 🌻Yay! We created and dockerized a Spring Boot application.
 
+Thank you for visting!
+
 #### References:
 
 https://spring.io/guides/gs/accessing-data-rest/
