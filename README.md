@@ -58,7 +58,7 @@ http://localhost:8080/customers
 
 🌻Yay! We created and dockerized a Spring Boot application.
 
-Thank you for visting!
+Thank you for visting! Happy Learning!
 
 #### References:
 
