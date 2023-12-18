@@ -2,7 +2,6 @@ name: Build jar for Java project
 on:
   push:
     branches: [ "main" ]
-
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
@@ -15,25 +14,20 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-          
       - name: Build with Maven
         run: |
-          mvn clean package -Dmaven.test.skip=true
-          
+          mvn clean package -Dmaven.test.skip=true  
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-        
       - name: Setup AWS ECR Details
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET }}
           aws-region: ${{ secrets.AWS_REGION}}
-
       - name: Login to Amazon ECR
         id: login-aws-ecr
         uses: aws-actions/amazon-ecr-login@v1
-
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
@@ -42,7 +36,6 @@ jobs:
             ${{ steps.login-aws-ecr.outputs.registry }}/springboot
           tags: |
             type=raw,value=1.{{date 'YYYYMMDD'}}.${{ github.run_number }}.${{ github.run_attempt }}
-
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
