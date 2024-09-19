@@ -1,0 +1,136 @@
+LAB GUIDE ON ECR
+
+Prerequisites for the Project
+•	AWS CLI
+•	Docker
+•	GitHub Desktop
+
+ Steps:
+
+1. Login to the AWS Management Console
+•	Open the [AWS Management Console](https://aws.amazon.com/console/).
+•	Log in with your credentials.
+
+2. Search for Elastic Container Registry (ECR)
+•	In the search bar, type Elastic Container Registry.
+•	Click on ECR from the search results.
+
+3. Create a Repository
+•	Click on Get Started under the "Create Repository" section.
+•	Leave the default settings as they are.
+•	Click on Create Repository.
+
+4. Repository Created
+•	Once created, click on the repository name to view details.
+•	You will see No Images found; this indicates that you need to push Docker images.
+
+
+
+ Installing AWS CLI
+
+1. Search for AWS CLI
+•	Use a search engine to search for AWS CLI.
+
+2. Download AWS CLI
+•	Go to the Amazon Web Services portal.
+•	Find the Install or Update to the Latest Version section.
+
+3. Choose Your System:
+- Follow the installation instructions based on your OS:
+•	Linux
+•	macOS
+•	Windows
+
+4. For Windows Installation:
+•	Download the `.msi` file from [AWS CLI Windows Installer](https://awscli.amazonaws.com/AWSCLIV2.msi).
+•	Run the `.msi` file to install AWS CLI on your local machine.
+
+5. Verify Installation:
+•	Open the command prompt and run the following command to verify the installation:
+
+                  aws --version
+   
+
+
+
+ Configure AWS CLI to Connect to the AWS Console
+
+1. Create Security Credentials in AWS
+•	Go to the AWS Management Console.
+•	Search for IAM (Identity and Access Management).
+•	In the navigation bar, click on Users.
+•	Click Create User.
+•	Add the username as `demouser`.
+•	Click Next.
+
+2. Set Permissions:
+•	Under Permission Options, select Attach policies directly.
+•	Search for and select AdministratorAccess.
+•	Click Next, then click Create User.
+
+3. Create Access Key:
+•	Click on the newly created user.
+•	Under Security Credentials, click Create Access Key.
+•	Select Command Line Interface for the use case.
+•	Confirm the selection and click Next.
+•	Provide a description tag (e.g., "demo").
+•	Click Create Access Key.
+•	Download the `.csv` file containing the Access Key ID and Secret Access Key for future use.
+•	Click Done.
+
+
+
+4. Configure AWS CLI:
+•	Open the command prompt and run the following command
+aws configure
+   
+•	Enter the Access Key ID and Secret Access Key from the downloaded `.csv` file.
+•	Enter the default region (e.g., `ap-south-1`).
+•	Leave the output format as `None` or set it to `json` or `text`.
+
+ Clone the Project from GitHub
+https://github.com/Royaladitya99/New-projects.git
+1. Clone the GitHub Repository:
+•	Use GitHub Desktop or Git to clone the project repository to your local machine.
+
+ Push Docker Image to ECR
+
+1. Go to ECR
+•	Navigate back to ECR in the AWS Management Console.
+•	Select the repository you created (e.g., `springbootrepo`).
+
+2. View Push Commands:
+•	Click View Push Commands to display the commands for pushing Docker images to the repository.
+•	Follow the commands based on your operating system (e.g., Windows or macOS/Linux).
+
+
+
+3. Start Docker and Authenticate:
+•	Go to your cloned project directory.
+•	Open the command prompt in this directory.
+•	Retrieve the authentication token and authenticate Docker to your AWS ECR:
+(Get-ECRLoginCommand).Password | docker login --username AWS --password-stdin <aws-account-id>.dkr.ecr.<region>.amazonaws.com
+
+4. Build the Docker Image:
+•	Build your Docker image using the following command:
+   docker build -t springbootrepo
+  
+5. Tag the Docker Image:
+•	After the build completes, tag the image so it can be pushed to ECR:
+   docker tag springbootrepo:latest <aws-account-id>.dkr.ecr.<region>.amazonaws.com/springbootrepo:latest
+   
+6. Push the Docker Image:
+•	Push the image to the ECR repository:
+
+   docker push <aws-account-id>.dkr.ecr.<region>.amazonaws.com/springbootrepo:latest
+   
+
+
+
+7. Verify the Image in ECR:
+•	Return to the AWS Management Console.
+•	Go to ECR, select your repository (`springbootrepo`), and confirm that the image has been successfully pushed.
+
+
+ Conclusion
+You have successfully pushed a Docker image to an AWS ECR repository and configured your environment for future deployments.
